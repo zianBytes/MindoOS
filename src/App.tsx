@@ -1,16 +1,19 @@
-import StarField from './components/StarField'
-import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import AppShell from './components/layouts/AppShell'
+import Landing from './pages/Landing'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import Dashboard from './pages/Dashboard'
 
-function App() {
+export default function App() {
   return (
-    <>
-      <StarField />
-      <main className="app-shell">
-        <h1>MindoOS</h1>
-        <p>Your goals, visualized as a living solar system.</p>
-      </main>
-    </>
+    <Routes>
+      <Route element={<AppShell />}>
+        <Route index element={<Landing />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="dashboard" element={<Dashboard />} />
+      </Route>
+    </Routes>
   )
 }
-
-export default App
